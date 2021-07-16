@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_214812) do
+ActiveRecord::Schema.define(version: 2021_07_16_192506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2021_07_15_214812) do
     t.text "biography"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "space_requests", force: :cascade do |t|
+    t.string "status"
+    t.datetime "renewed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "requestor_id"
+    t.index ["requestor_id"], name: "index_space_requests_on_requestor_id"
   end
 
 end
