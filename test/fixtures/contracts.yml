@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_at: 2021-07-16 21:36:54
+  renewed_every_as_days: 1
+  requestor: one
+
+two:
+  start_at: 2021-07-16 21:36:54
+  renewed_every_as_days: 1
+  requestor: two
