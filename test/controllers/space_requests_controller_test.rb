@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SpaceRequestControllerTest < ActionDispatch::IntegrationTest
+class SpaceRequestsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

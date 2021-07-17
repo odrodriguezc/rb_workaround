@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "requestors#index"
 
   resources :requestors
+  get 'space_requests/:id/confirm', to: 'space_requests#confirm', as: 'confirm_space_request'
 end
