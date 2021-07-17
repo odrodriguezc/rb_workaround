@@ -3,10 +3,6 @@ class RequestorsController < ApplicationController
     @requestors = Requestor.all
   end
 
-  def show
-    @requestor = Requestor.find(params[:id])
-  end
-
   def new
     @requestor = Requestor.new
   end
@@ -16,32 +12,12 @@ class RequestorsController < ApplicationController
     @requestor.assign_attributes(requestor_params)
 
     if @requestor.save
-      redirect_to @requestor
+      redirect_to root_path #todo add flash message
     else
       render :new
     end
   end
 
-  def edit
-    @requestor = Requestor.find(params[:id])
-  end
-
-  def update
-    @requestor = Requestor.find(params[:id])
-
-    if @requestor.update(requestor_params)
-      redirect_to @requestor
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @requestor = Requestor.find(params[:id])
-    @requestor.destroy
-
-    redirect_to root_path
-  end
 
   private
   def requestor_params
