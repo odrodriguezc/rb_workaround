@@ -43,4 +43,5 @@ ActiveRecord::Schema.define(version: 2021_07_16_195037) do
   end
 
   add_foreign_key "contracts", "requestors"
+  add_foreign_key "space_requests", "requestors"
 end
