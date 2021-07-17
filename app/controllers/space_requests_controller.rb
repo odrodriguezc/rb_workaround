@@ -44,6 +44,6 @@ class SpaceRequestsController < ApplicationController
 
   private
   def space_request_params
-    params.require(:space_requests).permit(status, renewed_at, requestor_id)
+    params.require(:space_requests).permit(:status, :renewed_at, :requestor_id)
   end
 end

@@ -1,8 +1,14 @@
 <h1>SpaceRequest#</h1>
 <ul>
-  <% @space_requests.each do |space_request| %>
+  <% @requestors.each do |requestor| %>
     <li>
-      <%= space_request.id %>
+      <%= requestor.id %>
+    </li>
+    <li>
+      <%= requestor.name %>
+    </li>
+    <li>
+      <%= requestor.email %>
     </li>
   <% end %>
 </ul>

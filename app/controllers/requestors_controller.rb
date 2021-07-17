@@ -1,6 +1,6 @@
 class RequestorsController < ApplicationController
   def index
-    @space_requests = Requestor.all
+    @requestors = Requestor.all
   end
 
   def show
@@ -12,7 +12,8 @@ class RequestorsController < ApplicationController
   end
 
   def create
-    @requestor = Requestor.new(requestor_params)
+    @requestor = Requestor.find_or_initialize_by(email: params[:requestor][:email])
+    @requestor.assign_attributes(requestor_params)
 
     if @requestor.save
       redirect_to @requestor
