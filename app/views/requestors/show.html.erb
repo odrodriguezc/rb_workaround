@@ -1,0 +1,12 @@
+<h1><%= @requestor.name %></h1>
+
+<p><%= @requestor.biography %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_requestor_path(@requestor) %></li>
+  <li><%= link_to "Destroy", requestor_path(@requestor), method: :delete, data: {confirm: "Are you sure?"} %></li>
+</ul>
+
+<h2> Space Requests </h2>
+
+<h2> Add a request</h2>
