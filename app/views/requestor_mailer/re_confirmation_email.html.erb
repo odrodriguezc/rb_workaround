@@ -1,0 +1,9 @@
+<h1>Hello, <%= @space_request.requestor.name %></h1>
+<p>
+  Your space request has 3 month on waiting list.<br>
+</p>
+<p>
+  To confirm your reservation, just follow this link: <%= link_to 'Confirm', re_confirm_space_request_url(@space_request) %>
+  otherwise your reservation will be canceled.
+</p>
+<p>Thanks have a great day!</p>

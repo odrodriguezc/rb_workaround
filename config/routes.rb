@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :requestors
   get 'space_requests/:id/confirm', to: 'space_requests#confirm', as: 'confirm_space_request'
+  get 'space_requests/:id/re_confirm', to: 'space_requests#re_confirm', as: 're_confirm_space_request'
 end
