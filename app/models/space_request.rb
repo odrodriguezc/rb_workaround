@@ -1,5 +1,5 @@
 class SpaceRequest < ApplicationRecord
-  # Create a 'magic' method by key to set the status value
+  # Create 'magics' methods to set the status value an to filter by status
   enum status: [:unconfirmed, :confirmed, :accepted, :expired]
 
   # n:1 Relation with requestor
