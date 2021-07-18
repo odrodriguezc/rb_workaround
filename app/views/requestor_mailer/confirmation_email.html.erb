@@ -1,0 +1,8 @@
+<h1>Hello, <%= @space_request.requestor.name %></h1>
+<p>
+  You have successfully create a space request.<br>
+</p>
+<p>
+  To confirm your reservation, just follow this link: <%= link_to 'Confirm', confirm_space_request_url(@space_request) %>.
+</p>
+<p>Thanks for joining and have a great day!</p>

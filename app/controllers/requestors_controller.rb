@@ -8,6 +8,7 @@ class RequestorsController < ApplicationController
   end
 
   def create
+    # Find requestor by email - if not exist create with request params
     @requestor = Requestor.find_or_initialize_by(email: params[:requestor][:email])
     @requestor.assign_attributes(requestor_params)
 

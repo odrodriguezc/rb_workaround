@@ -8,10 +8,13 @@ class Requestor < ApplicationRecord
   # 1:n relation with space request
   has_many :space_requests
 
-  # Callback to create space request
+  # Callback to create space request automatically
   after_create :create_space_request
 
   def create_space_request
-    self.space_requests.create
+    @space_request = self.space_requests.create
+    if @space_request
+      RequestorMailer.with(space_request: @space_request).confirmation_email.deliver_now
+    end
   end
 end
