@@ -3,7 +3,10 @@ class ReConfirmationSpaceRequestJob < ApplicationJob
 
   def perform(*args)
     #find request and send emails
-    @space_request = SpaceRequest.last
-    RequestorMailer.with(space_request: @space_request).confirmation_email.deliver_now
+    @space_requests = SpaceRequest.where(status: 1, renewed_at: ..1.minutes.ago).order(:created_at)
+    @space_requests.each do |key, space_request |
+      RequestorMailer.with(space_request: space_request, place: key).re_confirmation_email.deliver_later
+      space_request.expired!
+    end
   end
 end

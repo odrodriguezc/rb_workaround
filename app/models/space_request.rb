@@ -14,7 +14,7 @@ class SpaceRequest < ApplicationRecord
   end
 
   def create_contract
-    if self.confirmed? && self.saved_change_to_status?
+    if self.accepted? && self.saved_change_to_status?
       @contract = self.requestor.contracts.create(start_at: DateTime.now, renewed_every_as_days: 30)
     end
     if @contract
@@ -23,7 +23,8 @@ class SpaceRequest < ApplicationRecord
     end
   end
 
-  def find_status_and_created_at
-    #todo status confirmed and created_at - now = 3 months
-  end
+  #todo fix it to concentrate database request in models only / change minutes to 3 months
+  #scope :find_to_ask_reconfirmation, -> {where("status", 1).and("renewed_at IS NULL AND created_at <= ?", 1.minutes.ago)}
+
+
 end

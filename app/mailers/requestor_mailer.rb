@@ -12,4 +12,11 @@ class RequestorMailer < ApplicationMailer
     mail(to: @space_request.requestor.email,
          subject: 'Confirmation')
   end
+
+  def re_confirmation_email
+    @space_request = params[:space_request]
+    @place = params[:place]
+    mail(to: 'odrodriguezc@gmail.com',
+         subject: 'Confirmation')
+  end
 end
