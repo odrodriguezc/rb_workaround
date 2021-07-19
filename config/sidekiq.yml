@@ -2,3 +2,12 @@
 :queues:
   - default
   - mailers
+
+:schedule:
+  renew_contract_job:
+    cron: '0 * * * *'
+    class:
+
+  re_confirmation_space_request_job:
+    cron: '0 8 * * *'
+    class: ReConfirmationSpaceRequestJob
