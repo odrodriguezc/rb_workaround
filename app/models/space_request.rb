@@ -6,7 +6,7 @@ class SpaceRequest < ApplicationRecord
   belongs_to :requestor
 
   # Callback to create contract on space_request accepted
-  # after_update :create_contract, if: saved_change_to_attribute?(:status)
+  after_save :create_contract
 
   # Method to modify status (call enum magi method) with another name (accept instead of accepted)
   def accept!
@@ -14,9 +14,16 @@ class SpaceRequest < ApplicationRecord
   end
 
   def create_contract
-    @contract = self.requestor.contracts.create(start_at: DateTime.now, renewed_every_as_days: 30)
+    if self.confirmed? && self.saved_change_to_status?
+      @contract = self.requestor.contracts.create(start_at: DateTime.now, renewed_every_as_days: 30)
+    end
     if @contract
       #todo send email ...
+      logger.info('bingo!')
     end
+  end
+
+  def find_status_and_created_at
+    #todo status confirmed and created_at - now = 3 months
   end
 end
