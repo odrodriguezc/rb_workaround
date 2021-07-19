@@ -7,6 +7,8 @@ class Requestor < ApplicationRecord
 
   # 1:n relation with space request
   has_many :space_requests
+  # 1:n relation with contracts
+  has_many :contracts
 
   # Callback to create space request automatically
   after_create :create_space_request
