@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_17_143253) do
+ActiveRecord::Schema.define(version: 2021_07_20_000744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contracts", force: :cascade do |t|
-    t.datetime "start_at"
-    t.integer "renewed_every_as_days"
+    t.datetime "countdown_start_at"
     t.bigint "requestor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -34,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_143253) do
   end
 
   create_table "space_requests", force: :cascade do |t|
-    t.datetime "renewed_at"
+    t.datetime "countdown_start_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "requestor_id"

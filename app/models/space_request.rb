@@ -15,7 +15,7 @@ class SpaceRequest < ApplicationRecord
 
   def create_contract
     if self.accepted? && self.saved_change_to_status?
-      @contract = self.requestor.contracts.create(start_at: DateTime.now, renewed_every_as_days: 30)
+      @contract = self.requestor.contracts.create(countdown_start_at: DateTime.now)
     end
     if @contract
       #todo send email ...

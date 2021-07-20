@@ -14,7 +14,7 @@ class Requestor < ApplicationRecord
   after_create :create_space_request
 
   def create_space_request
-    @space_request = self.space_requests.create(renewed_at: DateTime.now)
+    @space_request = self.space_requests.create(countdown_start_at: DateTime.now)
     if @space_request
       RequestorMailer.with(space_request: @space_request).confirmation_email.deliver_now
     end
