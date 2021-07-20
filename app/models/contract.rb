@@ -1,5 +1,5 @@
 class Contract < ApplicationRecord
-  belongs_to :requestor
+  include Countdownable
 
-  scope :older_than, ->(date = 1.month.ago) { where("countdown_start_at <= ?", date) }
+  belongs_to :requestor
 end

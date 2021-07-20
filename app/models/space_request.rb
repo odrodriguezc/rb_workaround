@@ -1,4 +1,6 @@
 class SpaceRequest < ApplicationRecord
+  include Countdownable
+
   # Create 'magics' methods to set the status value an to filter by status
   enum status: [:unconfirmed, :confirmed, :accepted, :expired]
 
@@ -22,8 +24,4 @@ class SpaceRequest < ApplicationRecord
       logger.info('bingo!')
     end
   end
-
-  #todo change minutes to 3 months
-  scope :older_than, ->(date = 1.minutes.ago) { where("countdown_start_at <= ?", date) }
-
 end
