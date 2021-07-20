@@ -23,8 +23,7 @@ class SpaceRequest < ApplicationRecord
     end
   end
 
-  #todo fix it to concentrate database request in models only / change minutes to 3 months
-  #scope :find_to_ask_reconfirmation, -> {where("status", 1).and("renewed_at IS NULL AND created_at <= ?", 1.minutes.ago)}
-
+  #todo change minutes to 3 months
+  scope :older_than, ->(date = 1.minutes.ago) { where("countdown_start_at <= ?", date) }
 
 end
