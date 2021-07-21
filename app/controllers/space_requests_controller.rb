@@ -1,4 +1,5 @@
 class SpaceRequestsController < ApplicationController
+  #todo add crypted token to request
   def confirm
     @space_request = SpaceRequest.find_by(id: params[:id])
 

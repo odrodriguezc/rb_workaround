@@ -4,11 +4,9 @@ class RenewContractJob
   include Sidekiq::Worker
 
   def perform(*args)
-    logger.info('test renew contract')
-=begin
     Contract.older_than.each do |contract|
       contract.update(countdown_start_at: DateTime.now)
+      RequestorMailer.with(contract: contract).renew_contract_email.deliver_now
     end
-=end
   end
 end

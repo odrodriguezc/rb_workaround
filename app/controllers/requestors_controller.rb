@@ -1,8 +1,4 @@
 class RequestorsController < ApplicationController
-  def index
-    @requestors = Requestor.all
-  end
-
   def new
     @requestor = Requestor.new
   end
@@ -13,12 +9,13 @@ class RequestorsController < ApplicationController
     @requestor.assign_attributes(requestor_params)
 
     if @requestor.save
-      redirect_to root_path #todo add flash message
+      flash[:notice] = 'Success!'
+      redirect_to root_path
     else
+      flash[:error] = 'Fail!'
       render :new
     end
   end
-
 
   private
   def requestor_params

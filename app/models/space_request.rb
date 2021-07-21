@@ -23,8 +23,7 @@ class SpaceRequest < ApplicationRecord
       @contract = self.requestor.contracts.create(countdown_start_at: DateTime.now)
     end
     if @contract
-      #todo send email ...
-      logger.info('bingo!')
+      RequestorMailer.with(contract: @contract).contract_created_email.deliver_now
     end
   end
 end

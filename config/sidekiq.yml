@@ -1,13 +1,13 @@
 
 :queues:
   - default
- # - mailers
+  - mailers
 
 :schedule:
   renew_contract_job:
-    cron: '* * * * *'
+    cron: '*/5 * * * *'
     class: RenewContractJob
 
-#  re_confirmation_space_request_job:
-#    cron: '* * * * *'
-#    class: ReConfirmationSpaceRequestJob
+  re_confirmation_space_request_job:
+    cron: '*/5 * * * *'
+    class: ReConfirmationSpaceRequestJob
