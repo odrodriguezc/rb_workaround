@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'sqlite3'
-ruby '~>2.7.0'
+ruby '~>2.7.x'
 gem 'bootstrap_forms'
 gem "sidekiq"
 gem 'sidekiq-scheduler'
