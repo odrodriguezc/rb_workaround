@@ -195,6 +195,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     thor (1.1.0)
     thwait (0.2.0)
       e2mmap
@@ -245,6 +246,7 @@ DEPENDENCIES
   sidekiq
   sidekiq-scheduler
   spring
+  sqlite3
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
@@ -255,4 +257,4 @@ RUBY VERSION
    ruby 2.7.0p0
 
 BUNDLED WITH
-   2.1.2
+   2.2.24
