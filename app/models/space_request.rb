@@ -4,6 +4,9 @@ class SpaceRequest < ApplicationRecord
   # Create 'magics' methods to set the status value an to filter by status
   enum status: [:unconfirmed, :confirmed, :accepted, :expired]
 
+  #token
+  has_secure_token
+
   # n:1 Relation with requestor
   belongs_to :requestor
 
