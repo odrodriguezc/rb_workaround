@@ -118,16 +118,16 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  Rails.application.routes.default_url_options[:host] = 'https://workaround-odrc.herokuapp.com/'
+  Rails.application.routes.default_url_options[:host] = ENV['WORKAROUND_HOST']
   #Action mailer
-  config.action_mailer.default_url_options = { host: 'https://workaround-odrc.herokuapp.com/' } # for absolute urls in email
-  config.action_mailer.asset_host = 'https://workaround-odrc.herokuapp.com/' # for image URLs in HTML email
+  config.action_mailer.default_url_options = { host: ENV['WORKAROUND_HOST'] } # for absolute urls in email
+  config.action_mailer.asset_host = ENV['WORKAROUND_HOST'] # for image URLs in HTML email
   ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => ENV['MAILGUN_DOMAIN'],
+    :port           => ENV['GMAIL_SMTP_PORT'],
+    :address        => ENV['GMAIL_SMTP_SERVER'],
+    :user_name      => ENV['GMAIL_SMTP_LOGIN'],
+    :password       => ENV['GMAIL_SMTP_PASSWORD'],
+    :domain         => ENV['GMAIL_DOMAIN'],
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
