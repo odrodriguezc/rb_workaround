@@ -63,9 +63,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "workaround_production"
 
   config.action_mailer.perform_caching = false
-  # cloudmailing
-  config.action_mailer.delivery_method = :cloudmailin
-  config.action_mailer.default_url_options = { host: 'cloudmailin.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -121,16 +118,17 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  Rails.application.routes.default_url_options[:host] = 'https://dry-wildwood-57422.herokuapp.com'
-  config.action_mailer.default_url_options = { host: 'https://dry-wildwood-57422.herokuapp.com' } # for absolute urls in email
-  config.action_mailer.asset_host = 'https://dry-wildwood-57422.herokuapp.com' # for image URLs in HTML email
-  config.action_mailer.delivery_method = :smtp
+  Rails.application.routes.default_url_options[:host] = 'https://workaround-odrc.herokuapp.com/'
+  #Action mailer
+  config.action_mailer.default_url_options = { host: 'https://workaround-odrc.herokuapp.com/' } # for absolute urls in email
+  config.action_mailer.asset_host = 'https://workaround-odrc.herokuapp.com/' # for image URLs in HTML email
   config.action_mailer.smtp_settings = {
-    address:              'smtp.cloudmta.net',
-    port:                 2525,
-    domain:               'https://dry-wildwood-57422.herokuapp.com',
-    user_name:             ENV['CLOUDMAILIN_USERNAME'],
-    password:              ENV['CLOUDMAILIN_PASSWORD'],
-    authentication:       'plain',
-    enable_starttls_auto: true }
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'yourapp.heroku.com',
+    :authentication => :plain,
+  }
+  ActionMailer::Base.delivery_method = :smtp
 end
