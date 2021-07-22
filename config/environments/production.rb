@@ -121,5 +121,16 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  Rails.application.routes.default_url_options[:host] = 'https://dry-wildwood-57422.herokuapp.com/'
+  Rails.application.routes.default_url_options[:host] = 'https://dry-wildwood-57422.herokuapp.com'
+  config.action_mailer.default_url_options = { host: 'https://dry-wildwood-57422.herokuapp.com' } # for absolute urls in email
+  config.action_mailer.asset_host = 'https://dry-wildwood-57422.herokuapp.com' # for image URLs in HTML email
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.cloudmta.net',
+    port:                 2525,
+    domain:               'https://dry-wildwood-57422.herokuapp.com',
+    user_name:             ENV['CLOUDMAILIN_USERNAME'],
+    password:              ENV['CLOUDMAILIN_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true }
 end
