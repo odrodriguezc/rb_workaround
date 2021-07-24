@@ -1,28 +1,26 @@
 <style>
-    div.form, .card-title {
-        display: block;
-        text-align: center;
-    }
-    form {
-        display: inline-block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-    }
-    .btn {
-      margin-top: 1em
-    }
+div.form, .card-title {
+  display: block;
+  text-align: center;
+}
+form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.btn {
+margin-top: 1em
+}
+
 </style>
 
-<div class="w-75 m-auto mt-2 text-dark">
-  <div>
-    <div class="card" >
-      <img class="card-img-top" src="https://picsum.photos/seed/picsum/200/100" alt="Card image cap">
+<div class="w-50 h-500 m-auto mt-5 pt-5 text-dark ">
+    <div class="card bg-image">
       <div class="card-body">
-        <h5 class="card-title">New Space Request</h5>
+        <h5 class="card-title">Registration form</h5>
         <%= render "form", requestor: @requestor %>
       </div>
     </div>
-  </div>
 </div>
 

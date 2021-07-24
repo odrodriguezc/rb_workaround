@@ -1,4 +1,6 @@
 class RequestorsController < ApplicationController
+  include ConstModule
+
   def new
     @requestor = Requestor.new
   end
@@ -9,10 +11,10 @@ class RequestorsController < ApplicationController
     @requestor.assign_attributes(requestor_params)
 
     if @requestor.save
-      flash[:notice] = 'Success!'
+      flash[:notice] = REGISTRATION_SUCCESS_MESSAGE
       redirect_to root_path
     else
-      flash[:error] = 'Fail!'
+      flash[:error] = GENERAL_FAIL_MESSAGE
       render :new
     end
   end

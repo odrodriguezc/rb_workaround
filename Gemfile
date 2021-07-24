@@ -3,8 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
+# Fake data //here only for test deploy
 gem 'faker'
+# Form render
 gem 'bootstrap_forms'
+# Jobs
 gem "sidekiq"
 gem 'sidekiq-scheduler'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
