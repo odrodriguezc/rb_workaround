@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
+gem 'faker'
 gem 'bootstrap_forms'
 gem "sidekiq"
 gem 'sidekiq-scheduler'
