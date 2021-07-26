@@ -31,4 +31,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* * In Develop
+- Login system :jwt
+- Async request to find space request if exists
+- Multi space request by requestor 
